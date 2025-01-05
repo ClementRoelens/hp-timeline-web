@@ -1,0 +1,19 @@
+.container {
+  height:220px;
+  top:0px;
+  border-bottom : solid 2px grey;
+}
+
+.title {
+  font-size:25px;
+  text-align: center;
+}
+
+.hand {
+  display:flex;
+  justify-content: space-around;
+}
+
+.event {
+  cursor: pointer;
+}

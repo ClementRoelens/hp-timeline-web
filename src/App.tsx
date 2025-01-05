@@ -1,16 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react';
 import './App.css'
-import { fetchEvents } from './service/DataService';
+import { PlayGroundComponent } from './component/PlayGroundComponent';
+import { StartingComponent } from './component/StartingComponent';
 
 function App() {
-
-  useEffect(() => {
-    fetchEvents.then();
-  },[]);
+  const [isStarted, setIsStarted] = useState(false);
 
   return (
     <>
-    <p>coucou</p>
+      {!isStarted ?
+        <StartingComponent start={setIsStarted} />
+        :
+        <PlayGroundComponent />
+      }
     </>
   )
 }
