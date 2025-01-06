@@ -8,10 +8,16 @@
   transition : opacity 1.5s;
   opacity : 1;
   transform: scale(2);
+  position: absolute;
+  top : 250px;
+  left:calc(50% - 200px);
 }
 
 .revealed {
   transition : opacity 1.5s;
   opacity : 0;
   transform: scale(2);
+  position: absolute;
+  top : 250px;
+  left:calc(50% - 200px);
 }

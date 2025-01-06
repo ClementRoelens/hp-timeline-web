@@ -19,3 +19,11 @@
     opacity:0.5;
     cursor:pointer;
 }
+
+.year {
+    transition : opacity 1.5s;
+}
+
+.revealing {
+    opacity:0;
+}

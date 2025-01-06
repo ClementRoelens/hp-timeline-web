@@ -13,6 +13,7 @@ import styles from "../style/PlayGround.module.css";
 export const PlayGroundComponent = () => {
     const [playedEvents, setPlayedEvents] = useState<Event[]>([]);
     const [revealingEvent, setRevealingEvent] = useState<Event | null>(null);
+    const [isRevealed, setIsRevealed] = useState(false);
     const [isTryMode, setIsTryMode] = useState(false);
         
     const stock = useAppSelector(state => state.event.eventsStock);
@@ -52,8 +53,9 @@ export const PlayGroundComponent = () => {
 
         setRevealingEvent(playedEvents[index]);
         setTimeout(() => {
-            setRevealingEvent(null);
+            setIsRevealed(true);
         }, 1500);
+        setRevealingEvent(null);
 
         if (index == 0) {
             isCorrect = playedEvents[index].year <= playedEvents[index + 1].year;
@@ -117,7 +119,9 @@ export const PlayGroundComponent = () => {
                 {revealingEvent &&
                     <>
                         <div className={styles.revealing}>
-                            <EventCardComponent event={revealingEvent} isFaceUp={false} isSelection={false} />
+                            {/* <CSSTransition > */}
+                                <EventCardComponent event={revealingEvent} isFaceUp={false} isSelection={false} />
+                            {/* </CSSTransition> */}
                         </div>
                         <div className={styles.revealed}>
                             <EventCardComponent event={revealingEvent} isFaceUp={false} isSelection={false} />

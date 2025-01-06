@@ -5,6 +5,7 @@ type Props = {
     event: Event;
     isFaceUp: boolean;
     isSelection:boolean;
+    isRevealing:boolean;
 }
 
 const EventCardComponent = (props: Props) => {
@@ -12,6 +13,7 @@ const EventCardComponent = (props: Props) => {
         <div className={`${styles.card} ${props.isSelection ? styles.selection : ""}`}>
             <h2 className={styles.name}>{props.event.name}</h2>
             {props.isFaceUp && <p>{props.event.year}</p>}
+            
         </div>
     )
 }
