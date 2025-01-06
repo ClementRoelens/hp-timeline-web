@@ -44,20 +44,26 @@ export const PlayGroundComponent = () => {
     }
 
     const tryEvent = (index:number) => {
+        let newEvents:Event[] = [];
         if (playedEvents[index-1].year <= playedEvents[index].year
             &&
             playedEvents[index].year <= playedEvents[index+1].year
         ){
             console.log("Réussite !");
-            const newEvents = playedEvents.filter((event:Event, indexBis:number) => {
+            newEvents = playedEvents.filter((event:Event, indexBis:number) => {
                 if (indexBis % 2 != 0 && indexBis != index){
                     return event;
                 }
             });
-            setPlayedEvents(newEvents);
         } else {
             console.log("Raté");
+            newEvents = playedEvents.filter((event:Event, indexBis:number) => {
+                if (indexBis % 2 != 0){
+                    return event;
+                }
+            });
         }
+        setPlayedEvents(newEvents);
     };
 
     // useEffect(() => {
