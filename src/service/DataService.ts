@@ -19,8 +19,9 @@ export const fetchEvents = async (): Promise<Event[]> => {
                                 complete: (result) => {
                                         try {
                                                 const events: Event[] = result.data.map(line => ({
-                                                        name: line[0],
-                                                        year: +line[1],
+                                                        id : +line[0],
+                                                        name: line[1],
+                                                        year: +line[2],
                                                 }));
                                                 resolve(randomizeEvents(events));
                                         } catch (error) {

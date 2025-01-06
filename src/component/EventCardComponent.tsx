@@ -9,7 +9,7 @@ type Props = {
 
 const EventCardComponent = (props: Props) => {
     return (
-        <div className={`${styles.card} ${props.isSelection ? "styles.selection" : ""}`}>
+        <div className={`${styles.card} ${props.isSelection ? styles.selection : ""}`}>
             <h2 className={styles.name}>{props.event.name}</h2>
             {props.isFaceUp && <p>{props.event.year}</p>}
         </div>

@@ -14,3 +14,8 @@
     font-weight: 100;
     font-size: 20px;
 }
+
+.selection {
+    opacity:0.5;
+    cursor:pointer;
+}
