@@ -98,7 +98,7 @@ export const PlayGroundComponent = () => {
     };
 
     return (
-        <>
+        <div>
             <CurrentPlayerHandComponent player={players[currentPlayerIndex]} playEvent={triggerTryMode} />
             <div className={styles.playground}>
                 <ul className={styles.list}>
@@ -130,6 +130,6 @@ export const PlayGroundComponent = () => {
                     </div>
                 }
             </div>
-        </>
+        </div>
     )
 }
