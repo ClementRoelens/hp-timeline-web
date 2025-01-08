@@ -12,16 +12,12 @@ export const StartingComponent = (props: Props) => {
   const [players, setPlayers] = useState<Player[]>([{ id: 0, name: "", hand: [] }]);
 
   const updatePlayersNames = (e:  React.FormEvent<HTMLInputElement>, index: number) => {
-    if (e.currentTarget.value == "Enter") {
-      addPlayer(index);
-    } else {
       const updatedPlayers = players.map((player: Player) =>
         player.id === index ?
           { id: index, name: e.currentTarget.value, hand: [] } :
           player
       );
       setPlayers(updatedPlayers);
-    }
   };
 
   const addPlayer = (index: number) => {
@@ -39,16 +35,17 @@ export const StartingComponent = (props: Props) => {
       <p>Qui sont les joueurs ?</p>
       { players.map((_player: Player, index: number) =>
         <div key={index}>
-          <label htmlFor={`name-${index}`}>Nom du joueur {index}</label>
+          <label htmlFor={`name-${index+1}`}>Nom du joueur {index+1}</label>
           <span>
-            <input type="text" name={`name-${index}`} onChange={e => updatePlayersNames(e, index)} 
+            <input type="text" name={`name-${index+1}`} onChange={e => updatePlayersNames(e, index)} 
               onKeyDown={e => {
                 if (e.code === "Enter"){
                   e.preventDefault();
-                  addPlayer(index);
+                  addPlayer(index+1);
                 }
               }} />
-            <button onClick={() => addPlayer(index)}>+</button>
+            {index == players.length-1 && 
+            <button onClick={() => addPlayer(index+1)}>+</button>}
           </span>
         </div>
       )}

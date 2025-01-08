@@ -16,7 +16,7 @@ export const CurrentPlayerHandComponent = (props: Props) => {
       <ul className={styles.hand}>
         {props.player.hand.map((event: Event, index: number) =>
           <li className={styles.event} key={index} onClick={() => props.playEvent(event)}>
-            <EventCardComponent event={event} isFaceUp={false} isSelection={false} />
+            <EventCardComponent event={event} isFaceUp={false} isSelection={false} isRevealing={false} />
           </li>
         )}
       </ul>

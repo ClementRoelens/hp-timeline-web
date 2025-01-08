@@ -1,19 +1,25 @@
 .container {
-  height:220px;
-  top:0px;
-  border-bottom : solid 2px grey;
+  /* height:240px; */
+  /* top:0px;
+  border-bottom : solid 2px grey; */
 }
 
 .title {
-  font-size:25px;
+  font-size:35x;
   text-align: center;
+  margin:25px;
 }
 
 .hand {
   display:flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .event {
   cursor: pointer;
+  transition:transform 0.15s;
+}
+
+.event:hover {
+  transform: scale(1.15);
 }
